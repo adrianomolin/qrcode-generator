@@ -9,7 +9,7 @@ export function Page() {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [qrCodeUrl, setQrCodeUrl] = useState<string>('');
 
-  function generateCode(url: string) {
+  async function generateCode(url: string) {
     setQrCodeUrl(url);
     setIsModalOpen(true);
   }

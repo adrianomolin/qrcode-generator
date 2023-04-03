@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import ReactPortal from '../ReactPortal';
 import { ModalBody, Overlay } from './styles';
+import Loader from '../Loader';
 
 interface QRCodeModalProps {
   isOpen: boolean,
@@ -10,6 +11,7 @@ interface QRCodeModalProps {
 
 export function Modal({ isOpen, urlCode, handleCloseModal }: QRCodeModalProps) {
   const [shouldRender, setShouldRender] = useState(isOpen);
+  const [isLoading, setIsLoading] = useState(true);
   const overlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -59,7 +61,13 @@ export function Modal({ isOpen, urlCode, handleCloseModal }: QRCodeModalProps) {
     <ReactPortal containerId='modal-root'>
       <Overlay onClick={closeModal} ref={overlayRef} isLeaving={!isOpen}>
         <ModalBody isLeaving={!isOpen}>
-          <img src={urlCode} alt='qrcode' />
+          <img
+            src={urlCode}
+            alt='qrcode'
+            onLoad={() => setIsLoading(false)}
+          />
+
+          { isLoading && <Loader /> }
 
           <small>
             Seu QRCode foi gerado!
