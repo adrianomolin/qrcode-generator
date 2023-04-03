@@ -15,7 +15,7 @@ export const Container = styled.div`
 
 export const Header = styled.header`
   font-family: 'Montserrat';
-  font-size: 48px;
+  font-size: 3rem;
   text-transform: uppercase;
 
   color: ${({ theme }) => theme.colors.primary.main};
