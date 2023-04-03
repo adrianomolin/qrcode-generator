@@ -12,4 +12,6 @@ export const Container = styled.footer`
   color: ${({ theme }) => theme.colors.text.primary};
 
   border-radius: 1rem;
+
+  min-width: 28rem;
 `;
