@@ -49,6 +49,8 @@ export function Form({ onGenerateCode }: FormProps) {
       return;
     }
 
+    console.log(archiveType);
+
     if (errors.length < 1) {
       onGenerateCode(`https://qrtag.net/api/qr${isTransparent && '_transparent'}_${size ? size : '12'}.${archiveType}?url=${urlCode}`);
     }
@@ -79,30 +81,28 @@ export function Form({ onGenerateCode }: FormProps) {
             />
           </InputGroup>
           <InputGroup title='Tipo'>
-            <Select>
-              <option
-                onChange={() => setArchiveType('png')}
-              >
-                PNG
-              </option>
-              <option
-                onChange={() => setArchiveType('svg')}
-              >
-                SVG
-              </option>
+            <Select
+              value={archiveType}
+              onChange={(event) => setArchiveType(event.target.value)}
+            >
+              <option value='png'>PNG</option>
+              <option value='svg'>SVG</option>
             </Select>
           </InputGroup>
         </div>
 
         <InputGroup title='Transparente'>
-          <Select>
+          <Select
+            value={isTransparent}
+            onChange={(event) => setIsTransparent(event.target.value)}
+          >
             <option
-              onChange={() => setIsTransparent('transparent')}
+              value='transparent'
             >
               Transparente
             </option>
             <option
-              onChange={() => setIsTransparent('')}
+              value=''
             >
               Com fundo
             </option>
