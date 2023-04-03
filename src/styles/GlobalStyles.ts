@@ -62,4 +62,22 @@ export const GlobalStyles = createGlobalStyle`
   #root {
     height: 100%;
   }
+
+  @media only screen and (max-height: 900px) {
+    * {
+      font-size: 14px;
+    }
+  }
+
+  @media only screen and (max-height: 700px) {
+    * {
+      font-size: 12px;
+    }
+  }
+
+  @media only screen and (max-height: 600px) {
+    * {
+      font-size: 10px;
+    }
+  }
 `;
