@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.footer`
-  width: 50rem;
+  max-width: 50rem;
   padding: 1.5rem;
 
   text-align: justify;
